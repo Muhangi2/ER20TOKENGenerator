@@ -56,7 +56,7 @@ contract MainContract {
         string memory _tokenTransactionHash,
         string memory _tokenCreatedData
     )
-        external
+      payable  external
         returns (
             uint256,
             address,

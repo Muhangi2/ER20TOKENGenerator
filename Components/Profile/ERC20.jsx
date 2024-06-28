@@ -36,7 +36,7 @@ const ERC20 = ({setActive,createERC20}) => {
             </div>
             <div className="sign-icon">
                    <div className="acc-not">
-                    with minimum fee of <a>1</a> MATIC
+                    with minimum fee  <a>0.01</a> ETH
                    </div>
             </div>
           </div>

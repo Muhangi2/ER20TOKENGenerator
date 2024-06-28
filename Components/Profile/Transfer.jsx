@@ -9,7 +9,7 @@ const Transfer = ({setTransfer,transferNativeToken}) => {
     tokenNo:""
   })
   const handleTokenInfo=(fieldName,e)=>{
-    setToken({...token,[fieldName]:e.target.value})
+    setToken({...token, [fieldName]:e.target.value})
   }
   return <div className="login-area area-padding fix">
   <div className="login-overlay">

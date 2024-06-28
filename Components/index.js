@@ -10,7 +10,7 @@ import Information from "./information";
 import Staking from "./Staking";
 import Swap from "./Swap";
 import Welcome from "./Welcome";
-
+import Transfer from "./Profile/Transfer";
 //profile
 import ERC20 from "./Profile/ERC20";
 import Profile from "./Profile/Profile";
@@ -39,4 +39,5 @@ export {
   Table,
   TableTwo,
   UserProfile,
+  Transfer,
 };

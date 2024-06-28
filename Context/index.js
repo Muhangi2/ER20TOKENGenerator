@@ -75,7 +75,7 @@ const StateContextprovider = ({ children }) => {
       const getAllErcTokenList = await loopUpcontract.getAllERC20TokenListed();
       console.log(getAllErcTokenList, "all token");
       const parseToken = getAllErcTokenList.map((ERC20token, i) => ({
-        tokenID: ERC20token.tokenId.toNumber(),
+        tokenID: ERC20token.tokenID.toNumber(),
         owner: ERC20token.owner,
         tokenSupply: ERC20token.tokenSupply,
         tokenName: ERC20token.tokenName,
@@ -92,7 +92,7 @@ const StateContextprovider = ({ children }) => {
           account
         );
         const parseUserToken = getUserTokenList.map((ERC20token) => ({
-          tokenId: ERC20token.tokenId.toNumber(),
+          tokenID: ERC20token.tokenID.toNumber(),
           owner: ERC20token.owner,
           tokenSupply: ERC20token.tokenSupply,
           tokenName: ERC20token.tokenName,
@@ -146,14 +146,14 @@ const StateContextprovider = ({ children }) => {
       let contract = await factory.deploy(_initialSupply, name, symbol);
       await contract.deployed();
 
-      const _tokenCreatedDate = new Date().toISOString();
+      const _tokenCreatedData = new Date().toISOString();
 
       if (contract.address) {
         await createERC20Token(
           account,
+          supply.toString(),
           name,
           symbol,
-          supply.toString(),
           contract.address,
           contract.deployTransaction.hash,
           _tokenCreatedData
@@ -174,7 +174,7 @@ const StateContextprovider = ({ children }) => {
     symbol,
     tokenAddress,
     TokenTransactionHash,
-    tokenCreatedDate
+    tokenCreatedData
   ) => {
     try {
       const loopUpcontract = await connectingWithContract();
@@ -194,7 +194,7 @@ const StateContextprovider = ({ children }) => {
         symbol,
         tokenAddress,
         TokenTransactionHash,
-        tokenCreatedDate,
+        tokenCreatedData,
         {
           value: listingprice.toString(),
         }
