@@ -19,6 +19,7 @@ const ProfileMain = ({
   setActive,
   setTransfer
 }) => {
+  console.log(address, "address");
   const [donationAmount, setDonationAmount] = useState("");
 
   const handleDonationChange = (e) => {
@@ -38,7 +39,7 @@ const ProfileMain = ({
     { title: "Contract Balance", value: `${mainBalance == undefined ? "Only Owner see" : mainBalance} ETH` }
   ];
 
-  const contractOwner = "0xfDa86653c104B8163bf9337E58c3313a7F58553f"; // Ensure the contract owner address is a string
+  const contractOwner = 0xfDa86653c104B8163bf9337E58c3313a7F58553f; // Ensure the contract owner address is a string
 
   return (
     <div className="col-xl-9 col-lg-9 col-md-8">
@@ -47,7 +48,7 @@ const ProfileMain = ({
           <div className="user-top">
             <div className="user-balance">
               <span>Your Balance</span>
-              <div className="main-bal">{balance?.slice(0, 10)}ETH</div>
+              <div className="main-bal">{balance?.slice(0, 7)}ETH</div>
             </div>
             <div className="userboard-btn">
               <input
@@ -59,7 +60,7 @@ const ProfileMain = ({
                 style={{ marginRight: "10px", width: "200px", display: "inline-block" }}
               />
               <a className="user-btn coin-btn" onClick={handleDonate}>Donate</a>
-              {address === contractOwner && (
+              {address == contractOwner && (
                 <a onClick={() => withdrawfunds()} className="user-btn color-btn">
                   Withdraw funds
                 </a>

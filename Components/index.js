@@ -19,6 +19,7 @@ import SideBar from "./Profile/SideBar";
 import Table from "./Profile/Table";
 import TableTwo from "./Profile/TableTwo";
 import UserProfile from "./Profile/UserProfile";
+import TransferToken from "./Profile/TransferToken";
 
 export {
   About,
@@ -40,4 +41,5 @@ export {
   TableTwo,
   UserProfile,
   Transfer,
+  TransferToken
 };

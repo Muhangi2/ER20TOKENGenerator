@@ -6,16 +6,13 @@ import {
   UserProfile,
   Transfer,
   Profile,
+  TransferToken,
 } from "../Components/index";
 
 import { contextProvider } from "../Context/index";
-// import ConnectToBitski from "web3modal/dist/providers/connectors/bitski";
 
 const create = () => {
-  // const contextValue = useContext(StateContext);
-  // console.log(contextValue);
-
-  const [active, setactive] = useState(false);
+  const [active, setActive] = useState(false);
   const [transfer, setTransfer] = useState(false);
 
   const {
@@ -41,18 +38,38 @@ const create = () => {
     transferNativeToken,
     donateFunds,
   } = contextProvider();
-  // console.log(mainBalance)
+
+  // Ensure only one modal is active at a time
+  useEffect(() => {
+    if (transfer) {
+      setActive(false);
+    }
+  }, [transfer]);
+
+  useEffect(() => {
+    if (active) {
+      setTransfer(false);
+    }
+  }, [active]);
 
   return (
     <div>
       <Header />
-      {transfer && 
-        <Transfer
-          setTransfer={setTransfer}
-          transferNativeToken={transferNativeToken}
-        />
+      {
+        transfer && (
+          <TransferToken
+            setTransfer={setTransfer}
+            transferNativeToken={transferNativeToken}
+            setActive={setActive}
+            createERC20={createERC20}
+          />
+        )
+        // <Transfer
+        //   setTransfer={setTransfer}
+        //   transferNativeToken={transferNativeToken}
+        // />
       }
-      {active && <ERC20 setActive={setactive} createERC20={createERC20} />}
+      {active && <ERC20 setActive={setActive} createERC20={createERC20} />}
 
       <main>
         <Profile
@@ -66,7 +83,7 @@ const create = () => {
           getUserERC20Listed={getUserERC20Listed}
           createERC20={createERC20}
           donateFunds={donateFunds}
-          setActive={setactive}
+          setActive={setActive}
           setTransfer={setTransfer}
           address={address}
           fee={fee}
