@@ -6,7 +6,6 @@ import Feature from "./Feature";
 import Footer from "./Footer";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
-import Information from "./information";
 import Staking from "./Staking";
 import Swap from "./Swap";
 import Welcome from "./Welcome";
@@ -29,7 +28,6 @@ export {
   Footer,
   Header,
   HeroSection,
-  Information,
   Staking,
   Swap,
   Welcome,
@@ -41,5 +39,5 @@ export {
   TableTwo,
   UserProfile,
   Transfer,
-  TransferToken
+  TransferToken,
 };
