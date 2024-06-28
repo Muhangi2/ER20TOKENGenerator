@@ -18,7 +18,7 @@ const SideBar = ({ address, setOpen, open, setActive, setTransfer }) => {
             <div className="dashboard-profile">
               <img src="img/about/profile.png" alt="" />
               <div className="profile-content">
-                <span className="pro-name">Muhangi Elioda</span>
+                <span className="pro-name">Your Contract address</span>
                 <span className="pro-number">{address?.slice(0, 15)}...</span>
               </div>
             </div>
