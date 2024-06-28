@@ -113,7 +113,7 @@ const StateContextprovider = ({ children }) => {
       const allDonation = await loopUpcontract.getDonations();
       console.log(allDonation);
       const parseDonation = allDonation.map((donation, i) => ({
-        donationId: donation.donationId.toNumber(),
+        donationID: donation.donationID.toNumber(),
         donor: donation.donor,
         fund: ethers.utils.formatUnits(donation.fund.toString(), "ether"),
       }));
@@ -240,9 +240,9 @@ const StateContextprovider = ({ children }) => {
       console.log(error);
     }
   };
-  const donateFunds = async () => {
+  const donateFunds = async (amount) => {
     try {
-      const donateFund = ethers.utils.parseEther("1");
+      const donateFund = ethers.utils.parseEther(amount);
       const contract = await connectingWithContract();
       const donate = await contract.donate({ value: donateFund.toString() });
       await donate.wait();

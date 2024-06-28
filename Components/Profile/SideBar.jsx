@@ -36,7 +36,7 @@ const SideBar = ({address,setOpen,open,setActive,setTransfer}) => {
            class={open == el.name? "active": ""} 
           
           >
-            <a >
+            <a href="#">
               <BsBoxArrowRight/>
               <span className="new_space"></span>
               {el.name}

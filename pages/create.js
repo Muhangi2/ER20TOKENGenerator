@@ -46,15 +46,15 @@ const create = () => {
   return (
     <div>
       <Header />
-      {active && <ERC20 setActive={setactive} createERC20={createERC20} />}
-      {transfer && (
+      {transfer && 
         <Transfer
           setTransfer={setTransfer}
           transferNativeToken={transferNativeToken}
         />
-      )}
+      }
+      {active && <ERC20 setActive={setactive} createERC20={createERC20} />}
+
       <main>
-        <UserProfile />
         <Profile
           nativeToken={nativeToken}
           transferNativeToken={transferNativeToken}

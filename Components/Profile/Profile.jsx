@@ -6,7 +6,6 @@ import {ProfileMain,SideBar} from "../index";
 
 
 const Profile = ({nativeToken,
-transferNativeToken,
 mainBalance,
 balance,
 getAllDonation,
